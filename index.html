@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <title>Smart Logic Editor</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+        <script src="sketch.js"></script>
+        <script src="toggleButton.js"></script>
+        <script src="pressButton.js"></script>
+        <script src="lamp.js"></script>
+        <script src="messageBox.js"></script>
+        <script src="notGate.js"></script>
+        <script src="andGate.js"></script>
+        <script src="buffer.js"></script>
+        <script src="orGate.js"></script>
+        <script src="xOrGate.js"></script>
+        <script src="clock.js"></script>
+        <script src="flipFlop.js"></script>
+        <script src="halfAdder.js"></script>
+        <script src="fullAdder.js"></script>
+        <script src="binaryCounter.js"></script>
+        <style>
+            body{
+                margin: 0;
+                background-color: black;
+            }
+            #CanvasHolder {
+                float: left;
+                position: relative;
+            }
+            #CreateButtons {
+                width: 100%;
+                top: 0;
+                position: absolute;
+            }
+            #CreateButtons > .ButtonRow {
+                
+                width: 25%;
+                position: absolute;
+                color: white;
+                text-align: center;
+                background-color:rgba(0, 0, 0, 0.6);
+                transition: 200ms;
+            }
+            #CreateButtons > .ButtonRow:hover {
+                top: 0;
+            }
+            #br1 {
+                left: 0%;
+                top: -150px;
+            }
+            #br2 {
+                left: 25%;
+                top: -100px;
+            }
+            #br3 {
+                left: 50%;
+                top: -250px;
+            }
+            #br4 {
+                left: 75%;
+                top: -200px;
+            }
+            .CreateButton {
+                height: 50px;
+                width: 100%;
+                position: relative;
+                background-color: rgba(0, 0, 0, 0.6);
+                border: 1px solid black;
+                color: inherit;
+            }
+            .CreateButton:hover {
+                border: 1px solid white;
+                background-color: rgba(0,0,0,1);
+            }
+            #NetToggle {
+                position: absolute;
+                bottom: 0;
+                left: -80px;
+                height: 60px;
+                width: 100px;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.6);
+                transition: 150ms;
+            }
+            #NetToggle:hover {
+                left: 0;
+                transition: 150ms;
+            }
+            #NetToggle > p {
+                color: white;
+                margin-left: 20px;
+            }
+            #DeleteButton {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 100px;
+                height: 60px;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="CanvasHolder"> </div>
+            <div id="CreateButtons">
+                <div class="ButtonRow" id="br1">
+                    <button class="CreateButton" onclick="createToggleButton()">Neuer Knopf</button></br>
+                    <button class="CreateButton" onclick="createPressButton()">Neuer Druckknopf</button></br>
+                    <button class="CreateButton" onclick="createClock()">Neue Clock</button></br>
+                    <p>Inputs</p>
+                </div>
+                <div class="ButtonRow" id="br2">
+                    <button class="CreateButton" onclick="createLamp()">Neue Lampe</button></br>
+                    <button class="CreateButton" onclick="createMessageBox()">Neue Nachricht</button></br>
+                    <p>Outputs</p>
+                </div>
+                <div class="ButtonRow" id="br3">
+                    <button class="CreateButton" onclick="createBuffer()">Neuer Buffer</button></br>
+                    <button class="CreateButton" onclick="createNotGate()">Neues Nicht Gatter</button></br>
+                    <button class="CreateButton" onclick="createAndGate()">Neues Und Gatter</button></br>
+                    <button class="CreateButton" onclick="createOrGate()">Neues Oder Gatter</button></br>
+                    <button class="CreateButton" onclick="createXOrGate()">Neues Exklusiv Oder Gatter</button></br>
+                    <p>Logikgatter</p>
+                </div>
+                <div class="ButtonRow" id="br4">
+                    <button class="CreateButton" onclick="createFlipFlop()">Neuer FlipFlop</button></br>
+                    <button class="CreateButton" onclick="createHalfAdder()">Neuer Halbaddierer</button></br>
+                    <button class="CreateButton" onclick="createFullAdder()">Neuer Volladdierer</button></br>
+                    <button class="CreateButton" onclick="createBinaryCounter()">Neuer Binärer Zähler</button></br>
+                    <p>Integrierte Schaltkreise</p>
+                </div>
+            </div>
+                <button id="DeleteButton" class="CreateButton" onclick="deleteElement()">Element löschen</button></br>
+            </div>
+            <div id="NetToggle">
+                <p>Gitter <input id="GitterToggleButton" type="checkbox" checked="true"></p>
+            </div>
+    </body>
+</html>
